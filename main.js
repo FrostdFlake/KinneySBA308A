@@ -80,67 +80,67 @@ function updateColor() {
   hexInput.value = tinyColor.toHex();
   rgbInput.value = tinyColor.toRgbString();
 }
-const selectedColorPalettes = document.getElementById('selectedColorPalettes');
-const apiURL2 = 'http://www.colourlovers.com/api/palettes';
+// const selectedColorPalettes = document.getElementById('selectedColorPalettes');
+// const apiURL2 = 'http://www.colourlovers.com/api/palettes';
 
-const pickColorButton = document.getElementById('pickColor');
-pickColorButton.addEventListener('click', () => {
-  const selectedColor = getCurrentColor();
-  generatePalettesForColor(selectedColor, 5, selectedColorPalettes, apiURL2);
-});
+// const pickColorButton = document.getElementById('pickColor');
+// pickColorButton.addEventListener('click', () => {
+//   const selectedColor = getCurrentColor();
+//   generatePalettesForColor(selectedColor, 5, selectedColorPalettes, apiURL2);
+// });
 
-function getCurrentColor() {
-  const h = hueSlider.value;
-  const s = saturationSlider.value;
-  const l = lightnessSlider.value;
-  const a = opacitySlider.value / 100;
-  return `hsla(${h}, ${s}%, ${l}%, ${a})`;
-}
+// function getCurrentColor() {
+//   const h = hueSlider.value;
+//   const s = saturationSlider.value;
+//   const l = lightnessSlider.value;
+//   const a = opacitySlider.value / 100;
+//   return `hsla(${h}, ${s}%, ${l}%, ${a})`;
+// }
 
-function generatePalettesForColor(selectedColor, count, paletteContainer, apiURL) {
-  fetchPalettesForColor(selectedColor, count, apiURL)
-    .then((palettes) => {
-      displayColorPalettes(palettes, paletteContainer);
-    })
-    .catch((error) => {
-      console.error('Error generating palettes for selected color:', error);
-    });
-}
+// function generatePalettesForColor(selectedColor, count, paletteContainer, apiURL) {
+//   fetchPalettesForColor(selectedColor, count, apiURL)
+//     .then((palettes) => {
+//       displayColorPalettes(palettes, paletteContainer);
+//     })
+//     .catch((error) => {
+//       console.error('Error generating palettes for selected color:', error);
+//     });
+// }
 
-function fetchPalettesForColor(selectedColor, count, apiURL) {
-  const palettes = [];
-  const fetchPromises = [];
+// function fetchPalettesForColor(selectedColor, count, apiURL) {
+//   const palettes = [];
+//   const fetchPromises = [];
 
-  for (let i = 0; i < count; i++) {
-    fetchPromises.push(
-      fetch(`${apiURL}?format=json&hex=${selectedColor}`)
-        .then((response) => {
-          if (response.ok) {
-            return response.json().then((data) => data[0].colors);
-          } else {
-            throw new Error('Failed to fetch color palette for selected color.');
-          }
-        })
-    );
-  }
+//   for (let i = 0; i < count; i++) {
+//     fetchPromises.push(
+//       fetch(`${apiURL}?format=json&hex=${selectedColor}`)
+//         .then((response) => {
+//           if (response.ok) {
+//             return response.json().then((data) => data[0].colors);
+//           } else {
+//             throw new Error('Failed to fetch color palette for selected color.');
+//           }
+//         })
+//     );
+//   }
 
-  return Promise.all(fetchPromises);
-}
+//   return Promise.all(fetchPromises);
+// }
 
-function displayColorPalettes(palettes, palettesContainer) {
-  palettesContainer.innerHTML = '';
+// function displayColorPalettes(palettes, palettesContainer) {
+//   palettesContainer.innerHTML = '';
 
-  palettes.forEach((colors) => {
-    const paletteContainer = document.createElement('div');
-    paletteContainer.classList.add('palette');
+//   palettes.forEach((colors) => {
+//     const paletteContainer = document.createElement('div');
+//     paletteContainer.classList.add('palette');
 
-    colors.forEach((color) => {
-      const colorBox = document.createElement('div');
-      colorBox.style.backgroundColor = `#${color}`;
-      colorBox.classList.add('color-box');
-      paletteContainer.appendChild(colorBox);
-    });
+//     colors.forEach((color) => {
+//       const colorBox = document.createElement('div');
+//       colorBox.style.backgroundColor = `#${color}`;
+//       colorBox.classList.add('color-box');
+//       paletteContainer.appendChild(colorBox);
+//     });
 
-    palettesContainer.appendChild(paletteContainer);
-  });
-}
+//     palettesContainer.appendChild(paletteContainer);
+//   });
+// }
