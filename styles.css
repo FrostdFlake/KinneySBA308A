@@ -1,0 +1,53 @@
+.palette {
+    display: flex;
+    margin: 0px;
+}
+
+.color-box {
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-preview {
+  width: 200px;
+  height: 200px;
+  background: #540257;
+  margin: 10px 0;
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.color-values {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="text"] {
+  width: 80px;
+  margin: 0 10px;
+}

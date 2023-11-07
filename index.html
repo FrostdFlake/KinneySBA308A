@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Colourlovers Palette API Project</h1>
+    </header>
+    <section id="colorPalettes">
+    </section>
+    <button id="generatePalette">Generate Palette</button>
+    <section id="colorPicker">
+      <div class="color-picker">
+        <div class="color-preview">
+        </div>
+        <div class="sliders">
+          <div class="slider">
+            <label for="hue">Hue:</label>
+            <input type="range" id="hue" min="0" max="360" />
+          </div>
+          <div class="slider">
+            <label for="saturation">Saturation:</label>
+            <input type="range" id="saturation" min="0" max="100" />
+          </div>
+          <div class="slider">
+            <label for="lightness">Lightness:</label>
+            <input type="range" id="lightness" min="0" max="100" />
+          </div>
+          <div class="slider">
+            <label for="opacity">Opacity:</label>
+            <input type="range" id="opacity" min="0" max="100" />
+          </div>
+        </div>
+        <div class="color-values">
+          <input type="text" id="hex" placeholder="Hex" />
+          <input type="text" id="rgb" placeholder="RGB" />
+        </div>
+      </div>
+      <button id="pickColor">Pick a Color</button>
+    </section>
+    <section id="selectedColorPalettes">
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
